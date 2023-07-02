@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Snake and Ladder</title>
+    <style>
+        .activity-area{
+            display:grid;
+            grid-template-columns: auto auto auto auto auto auto auto auto auto auto;
+            grid-template-rows: 36% 36% 36% 36% 36%;
+            gap:2px;
+        }
+        .item{
+            border: 3px solid rgb(75, 47, 6);
+            padding: 9px;
+            background-color: rgb(22, 71, 230);
+            display: flex;
+            align-items: end;
+            border-radius: 15px;
+            position:relative;
+        }
+        .no{
+            border:3px double rgb(75, 47, 6);
+            padding:5px;
+            border-radius: 50px;
+            background-color: yellow;
+            font-weight: bold;
+        }
+        .game-panel{
+            width:70vw;
+            padding-right: 10px;
+            border-right: 2px solid black;
+            height:85vh;
+        }
+        .dice-area{
+            width: 30vw;
+        }
+        table,td,th{
+            border:2px solid red;
+            border-collapse: collapse;
+            
+        }
+        td,th{
+            padding-left:23px;
+            padding-right:23px;
+            text-align: center;
+        }
+        td{
+            font-size: 20px;
+            font-weight: bold;
+            background-color: white;
+        }
+        th{
+            background-color: black;
+            color: white;
+        }
+
+    </style>
+    <link rel="stylesheet" href="./style.css" />
+</head>
+<body style="background-image: radial-gradient(#a8c0ee,#f9c5ec);">
+    
+    <div class="score" style="margin:10px;width:99%;">
+        <table>
+            <tr>
+                <th>Team 1</th>
+                <th>Team 2</th>
+                <th>Team 3</th>
+                <th>Team 4</th>
+                <th>Team 5</th>
+                <th>Team 6</th>
+                <th>Team 7</th>
+                <th>Team 8</th>
+                <th>Team 9</th>
+                <th>Team 10</th>
+                <th>Team 11</th>
+                <th>Team 12</th>
+                <th>Team 13</th>
+            </tr>
+            <tr>
+                <td id="tt1">0</td>
+                <td id="tt2">0</td>
+                <td id="tt3">0</td>
+                <td id="tt4">0</td>
+                <td id="tt5">0</td>
+                <td id="tt6">0</td>
+                <td id="tt7">0</td>
+                <td id="tt8">0</td>
+                <td id="tt9">0</td>
+                <td id="tt10">0</td>
+                <td id="tt11">0</td>
+                <td id="tt12">0</td>
+                <td id="tt13">0</td>
+            </tr>
+        </table>
+    </div>
+
+    <div style="display:flex;">
+        <div class="game-panel" style="position:relative;">
+    
+            <div class="activity-area" >
+                <div onclick="shiftTo(21)" class="item" id="41" style="background-color: black;background-image: url(hollow.jpg);background-position:-28px -90px;background-size: 9rem;background-repeat: no-repeat;">
+                    <span class="no">41</span> 
+                </div>
+                <div class="item" id="42"> 
+                    <span class="no">42</span>
+                </div>
+                <div class="item" id="43" style="background-image: url(3.png);background-size: 15rem;background-repeat: no-repeat;"> 
+                    <span class="no">43</span>
+                </div>
+                <div class="item" id="44"> 
+                    <span class="no">44</span>
+                </div>
+                <div class="item" id="45" style="background-image: url(3.png);background-size: 10rem;background-repeat: no-repeat;"> 
+                    <span class="no">45</span>
+                </div>
+                <div class="item" id="46"> 
+                    <span class="no">46</span>
+                </div>
+                <div class="item" id="47" style="background-image: url(3.png);background-size: 19rem;background-repeat: no-repeat;"> 
+                    <span class="no">47</span>
+                </div>
+                <div class="item" id="48"> 
+                    <span class="no">48</span>
+                </div>
+                <div onclick="shiftTo(28)" class="item" id="49" style="background-color: black;background-image: url(hollow.jpg);background-position:-28px -90px;background-size: 9rem;background-repeat: no-repeat;"> 
+                    <span class="no">49</span>
+                </div>
+                <div class="item" id="50" style="background-image: url(winner.jpg);background-position:-15px 0px;background-size: 135%;background-repeat: no-repeat;"> 
+                    <span class="no">50</span>
+                </div>
+                <div class="item" id="40"> 
+                    <span class="no">40</span>
+                </div>
+                <div class="item" id="39" style="background-image: url(3.png);background-size: 25rem;background-repeat: no-repeat;"> 
+                    <span class="no">39</span>
+                </div>
+                <div onclick="shiftTo(45)" class="item" id="38" style="background-color: green;"> 
+                    <span class="no">38</span>
+                </div>
+                <div class="item" id="37" style="background-image: url(3.png);background-size: 20rem;background-repeat: no-repeat;"> 
+                    <span class="no">37</span>
+                </div>
+                <div onclick="shiftTo(5)" class="item" id="36" style="background-color: black;background-image: url(hollow.jpg);background-position:-28px -90px;background-size: 9rem;background-repeat: no-repeat;"> 
+                    <span class="no">36</span>
+                </div>
+                <div class="item" id="35" style="background-image: url(3.png);background-size: 15rem;background-repeat: no-repeat;"> 
+                    <span class="no">35</span>
+                </div>
+                <div class="item" id="34"> 
+                    <span class="no">34</span>
+                </div>
+                <div class="item" id="33" style="background-image: url(3.png);background-size: 25rem;background-repeat: no-repeat;"> 
+                    <span class="no">33</span>
+                </div>
+                <div class="item" id="32"> 
+                    <span class="no">32</span>
+                </div>
+                <div class="item" id="31" style="background-image: url(3.png);background-size: 30rem;background-repeat: no-repeat;"> 
+                    <span class="no">31</span>
+                </div>
+                <div class="item" id="21" style="background-image: url(3.png);background-size: 10rem;background-repeat: no-repeat;"> 
+                    <span class="no">21</span>
+                </div>
+                <div class="item" id="22"> 
+                    <span class="no">22</span>
+                </div>
+                <div class="item" id="23" style="background-image: url(3.png);background-size: 13rem;background-repeat: no-repeat;"> 
+                    <span class="no">23</span>
+                </div>
+                <div class="item" id="24"> 
+                    <span class="no">24</span>
+                </div>
+                <div class="item" id="25" style="background-image: url(3.png);background-size: 25rem;background-repeat: no-repeat;"> 
+                    <span class="no">25</span>
+                </div>
+                <div onclick="shiftTo(35)" class="item" id="26" style="background-color: green;"> 
+                    <span class="no">26</span>
+                </div>
+                <div class="item" id="27" style="background-image: url(3.png);background-size: 10rem;background-repeat: no-repeat;"> 
+                    <span class="no">27</span>
+                </div>
+                <div class="item" id="28"> 
+                    <span class="no">28</span>
+                </div>
+                <div class="item" id="29" style="background-image: url(3.png);background-size: 33rem;background-repeat: no-repeat;"> 
+                    <span class="no">29</span>
+                </div>
+                <div class="item" id="30"> 
+                    <span class="no">30</span>
+                </div>
+                <div onclick="shiftTo(2)" class="item" id="20" style="background-color: black;background-image: url(hollow.jpg);background-position:-28px -90px;background-size: 9rem;background-repeat: no-repeat;"> 
+                    <span class="no">20</span>
+                </div>
+                <div onclick="shiftTo(22)" class="item" id="19" style="background-color: green;background-image: url(3.png);background-size: 18rem;background-repeat: no-repeat;"> 
+                    <span class="no">19</span>
+                </div>
+                <div class="item" id="18"> 
+                    <span class="no">18</span>
+                </div>
+                <div class="item" id="17" style="background-image: url(3.png);background-size: 20rem;background-repeat: no-repeat;"> 
+                    <span class="no">17</span>
+                </div>
+                <div class="item" id="16"> 
+                    <span class="no">16</span>
+                </div>
+                <div class="item" id="15" style="background-image: url(3.png);background-size: 28rem;background-repeat: no-repeat;"> 
+                    <span class="no">15</span>
+                </div>
+                <div class="item" id="14"> 
+                    <span class="no">14</span>
+                </div>
+                <div class="item" id="13" style="background-image: url(3.png);background-size: 19rem;background-repeat: no-repeat;"> 
+                    <span class="no">13</span>
+                </div>
+                <div class="item" id="12"> 
+                    <span class="no">12</span>
+                </div>
+                <div class="item" id="11" style="background-image: url(3.png);background-size: 15rem;background-repeat: no-repeat;"> 
+                    <span class="no">11</span>
+                </div>
+                <div class="item" id="1" style="background-image: url(go.png);background-position:-5px 10px;background-size: 90px;background-repeat: no-repeat;"> 
+                    <span class="no">1</span>
+                </div>
+                <div class="item" id="2"> 
+                    <span class="no">2</span>
+                </div>
+                <div class="item" id="3" style="background-image: url(3.png);background-size: 30rem;background-repeat: no-repeat;"> 
+                    <span class="no">3</span>
+                </div>
+                <div class="item" id="4"> 
+                    <span class="no">4</span>
+                </div>
+                <div class="item" id="5" style="background-image: url(3.png);background-size: 25rem;background-repeat: no-repeat;"> 
+                    <span class="no">5</span>
+                </div>
+                <div class="item" id="6"> 
+                    <span class="no">6</span>
+                </div>
+                <div onclick="shiftTo(27)" class="item" id="7" style="background-color: green;background-image: url(3.png);background-size: 15rem;background-repeat: no-repeat;"> 
+                    <span class="no">7</span>
+                </div>
+                <div class="item" id="8"> 
+                    <span class="no">8</span>
+                </div>
+                <div class="item" id="9" style="background-image: url(3.png);background-size: 10rem;background-repeat: no-repeat;"> 
+                    <span class="no">9</span>
+                </div>
+                <div class="item" id="10"> 
+                    <span class="no">10</span>
+                </div>
+    
+            </div>
+    
+            <div style="display:none;" id="0">
+                <div id="team-1" style="border:2px solid black;border-radius:20px;padding:10px;background-color: black;color: white;position:absolute;top:0;">
+                    Team 1
+                </div>
+                <div id="team-2" style="border:2px solid black;border-radius:20px;padding:10px;background-color: black;color: white;position:absolute;top:0;">
+                    Team 2
+                </div>
+                <div id="team-3" style="border:2px solid black;border-radius:20px;padding:10px;background-color: black;color: white;position:absolute;top:0;">
+                    Team 3
+                </div>
+                <div id="team-4" style="border:2px solid black;border-radius:20px;padding:10px;background-color: black;color: white;position:absolute;top:0;">
+                    Team 4
+                </div>
+                <div id="team-5" style="border:2px solid black;border-radius:20px;padding:10px;background-color: black;color: white;position:absolute;top:0;">
+                    Team 5
+                </div>
+                <div id="team-6" style="border:2px solid black;border-radius:20px;padding:10px;background-color: black;color: white;position:absolute;top:0;">
+                    Team 6
+                </div>
+                <div id="team-7" style="border:2px solid black;border-radius:20px;padding:10px;background-color: black;color: white;position:absolute;top:0;">
+                    Team 7
+                </div>
+                <div id="team-8" style="border:2px solid black;border-radius:20px;padding:10px;background-color: black;color: white;position:absolute;top:0;">
+                    Team 8
+                </div>
+                <div id="team-9" style="border:2px solid black;border-radius:20px;padding:10px;background-color: black;color: white;position:absolute;top:0;">
+                    Team 9
+                </div>
+                <div id="team-10" style="border:2px solid black;border-radius:20px;padding:10px;background-color: black;color: white;position:absolute;top:0;">
+                    Team 10
+                </div>
+                <div id="team-11" style="border:2px solid black;border-radius:20px;padding:10px;background-color: black;color: white;position:absolute;top:0;">
+                    Team 11
+                </div>
+                <div id="team-12" style="border:2px solid black;border-radius:20px;padding:10px;background-color: black;color: white;position:absolute;top:0;">
+                    Team 12
+                </div>
+                <div id="team-13" style="border:2px solid black;border-radius:20px;padding:10px;background-color: black;color: white;position:absolute;top:0;">
+                    Team 13
+                </div>
+    
+            </div>
+    
+    
+    
+            <!-- 7 - 27 ladder -->
+            <div style="position:absolute;transform:rotate(-6deg);bottom:2rem;right:18rem;">
+                <img src="./ladder.png" alt="ladder" style="transform:scaleY(1.2);">
+            </div>
+    
+            <!-- 19 - 22 ladder -->
+            <div style="position:absolute;transform:rotate(-20deg);bottom:8rem;left:7.5rem">
+                <img src="./ladder2.png" alt="ladder" style="transform:scaleY(1.8);">
+            </div>
+    
+            <!-- 26 - 35 ladder -->
+            <div style="position:absolute;transform:rotate(-200deg);bottom:17rem;left:30rem">
+                <img src="./ladder2.png" alt="ladder" style="transform:scaleY(1.8);">
+            </div>
+    
+            <!-- 38 - 45 ladder -->
+            <div style="position:absolute;transform:rotate(220deg);top:-2rem;left:18rem;">
+                <img src="./ladder.png" alt="ladder" style="transform:scaleY(1.05);">
+            </div>
+    
+            <!-- 20 -  3 snake -->
+            <div style="position:absolute;transform:rotate(-15deg);bottom:0rem;left:1.5rem;">
+                <img src="./snake2.png" alt="snake" style="transform:scaleY(1.2);">
+            </div>
+    
+            <!-- 49 -  28 snake -->
+            <div style="position:absolute;transform:rotate(-10deg);top:2rem;right:7rem;">
+                <img src="./snake3.png" alt="snake" style="transform:scaleY(1);">
+            </div>
+    
+            <!-- 41 -  21 snake -->
+            <div style="position:absolute;transform:rotate(5deg);top:-3rem;left:.4rem;">
+                <img src="./snake.png" alt="snake" style="transform:scaleY(.6);">
+            </div>
+    
+            <!-- 36 -  5 snake -->
+            <div style="position:absolute;transform:rotateZ(-10deg);top:7rem;left:24rem;">
+                <div style="transform:rotateY(180deg);">
+                    <img src="./snake.png" alt="snake" style="transform:scaleY(.9);">
+                </div>
+            </div>
+    
+            <!--  arrow -->
+            <div style="position:absolute;transform:rotate(5deg);bottom:2rem;right:-3rem;">
+                <img src="./rl.png" alt="snake" style="transform:scale(.5);">
+            </div>
+            
+            <!--  arrow2 -->
+            <div style="position:absolute;transform:rotateY(180deg);bottom:8.5rem;left:0rem;">
+                <img src="./rl.png" alt="snake" style="transform:scale(.5);">
+            </div>
+            
+            <!--  arrow3 -->
+            <div style="position:absolute;transform:rotate(5deg);bottom:15.5rem;right:-3rem;">
+                <img src="./rl.png" alt="snake" style="transform:scale(.5);">
+            </div>
+            
+            <!--  arrow2 -->
+            <div style="position:absolute;transform:rotateY(180deg);bottom:22.5rem;left:1.5rem;">
+                <img src="./rl.png" alt="snake" style="transform:scale(.5);">
+            </div>
+        </div>
+    
+        <div class="dice-area">
+    
+            <div style="display:flex;justify-content: center;width:100%;">
+                <input type="text" id="team-name" placeholder="Team Name"><button type="button"  id="roll-button" style="z-index: 10;margin-left:5px;">Spin</button>
+            </div>
+    
+            <div class="dice-place" style="width:100%;height:35vh;border-bottom: 2px solid black;padding-top:60px;padding-bottom: 0px;margin: 0px;">
+                <div class="dice" style="transform: scale3d(1.5,1.5,1.5);margin:0px;padding:0px;width:80%;">
+                    <ol class="die-list even-roll" data-roll="1" id="die-1">
+                        <li class="die-item" data-side="1">
+                            <span class="dot"></span>
+                        </li>
+                        <li class="die-item" data-side="2">
+                            <span class="dot"></span>
+                            <span class="dot"></span>
+                        </li>
+                        <li class="die-item" data-side="3">
+                            <span class="dot"></span>
+                            <span class="dot"></span>
+                            <span class="dot"></span>
+                        </li>
+                        <li class="die-item" data-side="4">
+                            <span class="dot"></span>
+                            <span class="dot"></span>
+                            <span class="dot"></span>
+                            <span class="dot"></span>
+                        </li>
+                        <li class="die-item" data-side="5">
+                            <span class="dot"></span>
+                            <span class="dot"></span>
+                            <span class="dot"></span>
+                            <span class="dot"></span>
+                            <span class="dot"></span>
+                        </li>
+                        <li class="die-item" data-side="6">
+                            <span class="dot"></span>
+                            <span class="dot"></span>
+                            <span class="dot"></span>
+                            <span class="dot"></span>
+                            <span class="dot"></span>
+                            <span class="dot"></span>
+                        </li>
+                    </ol>
+                </div>
+            </div>
+
+            <div style="display:flex;justify-content: space-evenly;width:100%;">
+                <input type="button" onclick="start()" value="Start" style="padding: 10px;">
+                <input type="button" onclick="stop()" value="Stop" style="padding: 10px;">
+                <input type="button" onclick="reset()" value="Reset" style="padding: 10px;">
+            </div>
+
+            <div id="time" style="font-size: 10rem;font-weight: bold;color: black;text-align: center;">
+                15
+            </div>
+        </div>
+
+    </div>
+</body>
+
+<div id="final" style="display:none;width:98%;position:absolute;top:8rem;">
+    <div class="modal" onclick="makenone('final')" style="background-image: url(celebrate.jpg);background-size:100% 100%;box-shadow:0px 0px 80px black;background-repeat:no-repeat;display: flex;align-items: center;justify-content: center;font-size: 30px;width:40rem;height:15rem;background-color: aqua;margin-left:auto;margin-right: auto;border-radius: 50px;border:2px solid white;">
+        <div>Congratulation's <span id="teamname" style="font-weight: bold;"></span> have reached</div>
+    </div>
+</div>
+
+<div id="nexttime" style="display:none;width:98%;position:absolute;top:8rem;">
+    <div class="modal" style="box-shadow:0px 0px 80px red;width:40rem;height:15rem;background-color: red;margin-left:auto;margin-right: auto;border-radius: 50px;border:2px solid white;">
+        <div onclick="makenone('nexttime')" style="height:100%;width:100%;text-shadow:0px 0px 20px red;background-image: url(hide.jpg);background-size:100%;box-shadow:0px 0px 80px red inset;border-radius: 50px;background-repeat:no-repeat;display: flex;align-items: center;justify-content: center;font-size: 30px;">
+            <div>Better Luck Next Time!!</div>
+        </div>
+    </div>
+</div>
+
+<script>
+    let previousValue=0;
+
+    function makenone(id){
+        document.getElementById(id).style.display="none";
+    }
+
+    function rollDice() {
+        let teamName=parseInt(document.getElementById("team-name").value.trim());
+        
+        const dice = [...document.querySelectorAll(".die-list")];
+        dice.forEach(die => {
+        toggleClasses(die);
+        let randomValue=getRandomNumber(1, 6);
+        die.dataset.roll =randomValue;
+        setTimeout(()=>{
+            move(randomValue);
+        }, 4000);
+        });
+    }
+    
+    function toggleClasses(die) {
+        die.classList.toggle("odd-roll");
+        die.classList.toggle("even-roll");
+    }
+    
+    function getRandomNumber(min, max) {
+        min = Math.ceil(min);
+        max = Math.floor(max);
+        let currentValue;
+        do{
+            currentValue=Math.floor(Math.random() * (max - min + 1)) + min;
+        }while(previousValue==currentValue);
+        previousValue=currentValue;
+        return currentValue;
+    }
+    
+    document.getElementById("roll-button").addEventListener("click", rollDice);
+
+    function move(randomValue){
+        let teamName=parseInt(document.getElementById("team-name").value.trim());
+        let pos=parseInt(document.getElementById("team-"+teamName).parentElement.getAttribute("id"));
+        let nextPos=pos+randomValue;
+
+        if(nextPos>50){
+            document.getElementById("nexttime").style.display="block";
+        }
+        else if(nextPos==50){
+            document.getElementById("teamname").innerText="Team "+teamName;
+            document.getElementById("final").style.display="block";
+            document.getElementById(nextPos).appendChild(document.getElementById("team-"+teamName));
+            document.getElementById("tt"+teamName).innerText=nextPos;
+        }
+        else{
+            document.getElementById(nextPos).appendChild(document.getElementById("team-"+teamName));
+            document.getElementById("tt"+teamName).innerText=nextPos;
+            setTimeout(() => {
+                document.getElementById(nextPos).click();
+            }, 1000);
+
+        }
+        
+    }
+
+    function shiftTo(position){
+        let teamName=parseInt(document.getElementById("team-name").value.trim());
+        document.getElementById(position).appendChild(document.getElementById("team-"+teamName));
+        document.getElementById("tt"+teamName).innerText=position;
+    }
+
+
+    let times;
+    let value=15;
+    function start(){
+        times=setInterval(() => {
+            value--;
+            document.getElementById("time").innerText=value;
+            if(value==0){
+                stop();
+            }
+        }, 1300);
+    }
+    
+    function stop(){
+        clearInterval(times);
+    }
+
+    function reset(){
+        value=15;
+        document.getElementById("time").innerText=value;
+    }
+  
+</script>
+</html>
